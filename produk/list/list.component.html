@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="text-center my-3">List Produk</h1>
+  <div class="rounded border">
+      <button class="btn btn-dark m-2" [routerLink]="['/', 'produk', 'form']">Tambah</button>
+      <table class="text-center table">
+          <thead>
+              <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Nama Produsen</th>
+                  <th scope="col">Nama Produk</th>
+                  <th scope="col">Jenis</th>
+                  <th scope="col">Berat</th>
+                  <th scope="col">Harga</th>
+                  <th scope="col">Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of listProduk; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <th>{{item.produsen.nama}}</th>
+                  <th>{{item?.nama}}</th>
+                  <th>{{item?.jenis}}</th>
+                  <th>{{item?.berat}}</th>
+                  <th>{{item?.harga}}</th>
+                  <th>
+                      <button class="btn btn-danger mx-2" (click)="delete(item.id)">Delete</button>
+                      <button class="btn btn-success mx-2" [routerLink]="['/', 'produk', 'edit', item.id]">Edit</button>
+                  </th>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
